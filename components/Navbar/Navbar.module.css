@@ -15,6 +15,7 @@
 
 .linkstation__navbar-links_logo {
   margin-right: 2rem;
+  transition: all .5s;
 }
 .linkstation__navbar-links_logo h1 {
   background: var(--gradient-text);
@@ -146,7 +147,7 @@
 
 @media screen and (max-width: 400px) {
   .linkstation__navbar-menu_container {
-    top: 40px;
+    top: 30px;
   }
 }
 
@@ -163,8 +164,8 @@
 
 @-webkit-keyframes slide-left {
   0% {
-    -webkit-transform: translateX(100px);
-    transform: translateX(100px);
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
   }
   100% {
     -webkit-transform: translateX(0px);
@@ -173,8 +174,8 @@
 }
 @keyframes slide-left {
   0% {
-    -webkit-transform: translateX(100px);
-    transform: translateX(100px);
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
   }
   100% {
     -webkit-transform: translateX(0px);
