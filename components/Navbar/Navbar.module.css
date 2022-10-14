@@ -4,6 +4,7 @@
   align-items: center;
 
   padding: 2rem 6rem;
+  user-select: none;
 }
 
 .linkstation__navbar-links {
@@ -15,14 +16,16 @@
 
 .linkstation__navbar-links_logo {
   margin-right: 2rem;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .linkstation__navbar-links_logo h1 {
   background: var(--gradient-text);
+  font-family: var(--font-family-title);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
+  font-weight: bold;
 }
 .linkstation__navbar-links_logo h1:hover {
   color: var(--color-text);
@@ -59,17 +62,17 @@
 }
 .linkstation__navbar-links_container p,
 .linkstation__navbar-sign p {
-  color: var(--color-text);
+  color: var(--light-color);
 }
 .linkstation__navbar-links_container p a:hover,
 .linkstation__navbar-sign p a:hover {
-  color: var(--color-text);
+  color: var(--light-color);
 }
 
 .linkstation__navbar-sign button,
 .linkstation__navbar-menu_container button {
   padding: 0.5rem 1rem;
-  background-color: var(--color-text);
+  background-color: var(--light-color);
   color: #000;
   font-size: 18px;
   font-family: var(--font-family);
@@ -83,7 +86,7 @@
 
 .linkstation__navbar-menu {
   margin-left: 1rem;
-  /* display: none; */
+  display: none;
   position: relative;
 }
 
@@ -98,7 +101,7 @@
   flex-direction: column;
 
   text-align: end;
-  background: gray;
+  background: #efeff1;
   padding: 2rem;
   position: absolute;
   top: 40px;
@@ -117,12 +120,24 @@
   display: none;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1078px) {
   .linkstation__navbar-links_container {
     display: none;
   }
   .linkstation__navbar-menu {
     display: flex;
+  }
+  .linkstation__navbar-menu svg {
+    display: block;
+  }
+
+  .linkstation__navbar-menu_container-links p,
+  .linkstation__navbar-menu_container-links-sign p {
+    color: #040c18;
+  }
+  .linkstation__navbar-menu_container-links-sign button {
+    background-color: #040c18;
+    color: #efeff1;
   }
 }
 @media screen and (max-width: 700px) {
@@ -150,7 +165,6 @@
     top: 30px;
   }
 }
-
 
 /* Animation for Navbar */
 .slide-left {

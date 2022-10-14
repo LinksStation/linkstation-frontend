@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import Image from "next/image";
 import Link from "next/link";
-import { Transition } from "react-transition-group";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import Button from "../../UI/Button/Button";
 
 import styles from "./Navbar.module.css";
 
@@ -22,9 +23,10 @@ const Menu = () => (
     </p>
   </>
 );
+
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-
+  const user = useContext(UserContext);
   return (
     <div className={styles["linkstation__navbar"]}>
       <div className={styles["linkstation__navbar-links"]}>
@@ -39,8 +41,17 @@ const Navbar = () => {
         </div>
       </div>
       <div className={styles["linkstation__navbar-sign"]}>
-        <p itemType="button">Sign in</p>
-        <button type="button">Sign up</button>
+        {user?.isLoggedIn === true && (
+          <Button>{user.userData?.firstName}</Button>
+        )}
+        {!user?.isLoggedIn && (
+          <>
+            <Link href="/auth/login">
+              <p>Sign in</p>
+            </Link>
+            <Button href="/auth/signup">Get Started!</Button>
+          </>
+        )}
       </div>
       <div className={styles["linkstation__navbar-menu"]}>
         {toggleMenu ? (
@@ -67,8 +78,16 @@ const Navbar = () => {
                   styles["linkstation__navbar-menu_container-links-sign"]
                 }
               >
-                <p>Sign in</p>
-                <button type="button">Sign up</button>
+                {user.userData?.isLoggedIn ? (
+                  <Button>{user.userData?.firstName}</Button>
+                ) : (
+                  <>
+                    <Link href="/auth/login">
+                      <p>Sign in</p>
+                    </Link>
+                    <Button href="/auth/signup">Get Started!</Button>
+                  </>
+                )}
               </div>
             </div>
           </div>

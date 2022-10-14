@@ -1,12 +1,25 @@
+/* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable react/no-unescaped-entities */
-import { Button } from "react-bootstrap";
+import Head from "next/head";
 import Navbar from "../components/Navbar/Navbar";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
+      <Head>
+        <title>LinkStation: A station for your Links!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Navbar />
-    </div>
+    </>
   );
 }
